@@ -1,4 +1,4 @@
-# Version Control and Branch Management (Git) Sumarry
+# Summary Version Control and Branch Management (Git)
 
 1. Dengan Version contol lahir di dunia prmograman ini intinya memudahkan para develooer untuk merevisi suatu program tanpa membuat file atau nama baru
 
