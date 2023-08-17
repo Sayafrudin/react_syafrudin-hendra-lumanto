@@ -6,29 +6,44 @@
     <title>Create Product</title>
   </head>
   <body>
-    <h1>Create Product</h1>
-    <h2>Detail Product</h2>
-    <label for="">Product name : </label><br />
-    <input type="text" />
-    <br />
-    <label for="">Product category : </label><br />
-    <select name="" id="">
-      <option value="">------</option>
-      <option value="">Contoh</option>
-      <option value="">Contoh</option>
-      <option value="">Contoh</option>
-    </select>
-    <br /><br />
-    <label for="">Product frashness : </label><br />
-    <input type="radio" /><label for="">Brand New</label><br />
-    <input type="radio" /><label for="">Second Hand</label><br />
-    <input type="radio" /><label for="">Refurnished</label><br />
-    <br />
-    Image Of Product <input type="file" /> <br /><br />
-    <label>Additional Description</label><br />
-    <textarea name="" id="" cols="30" rows="10"></textarea><br />
-    <label for="">Product Prize</label><br />
-    <input type="text" value="100$" /><br /><br />
-    <button>Submit</button>
+    <form action="">
+      <h1>Create Product</h1>
+      <h2>Detail Product</h2>
+      <label for="">Product name : </label><br />
+      <input
+        type="text"
+        pattern="[A-Za-z]{6,50}"
+        title="Minimal 6 atau 50 huruf, hanya boleh Huruf"
+        required
+      />
+      <br />
+      <label for="">Product category : </label><br />
+      <select name="" id="" required>
+        <option value="">------</option>
+        <option value="">Contoh</option>
+        <option value="">Contoh</option>
+        <option value="">Contoh</option>
+      </select>
+      <br /><br />
+      <label for="">Product frashness : </label><br />
+      <input type="radio" name="freshness" /><label for="">Brand New</label
+      ><br />
+      <input type="radio" name="freshness" /><label for="">Second Hand</label
+      ><br />
+      <input type="radio" name="freshness" /><label for="">Refurnished</label
+      ><br />
+      <br />
+      Image Of Product <input type="file" /> <br /><br />
+      <label>Additional Description</label><br />
+      <textarea name="" id="" cols="30" rows="10"></textarea><br />
+      <label for="">Product Prize</label><br />
+      <input
+        type="text"
+        pattern="[0-9]"
+        title="Hanya boleh angka"
+        required
+      /><br /><br />
+      <a href=""><button type="submit">Submit</button></a>
+    </form>
   </body>
 </html>
