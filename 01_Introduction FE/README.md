@@ -8,3 +8,7 @@
 
 3. Cara menggunakan dan mengerti tentang apa itu Browser untuk digunakan Front-end developer, seperti menggunakan View Page -
    Source & Inspect element di browser
+
+# Link File Google Docs Latihan FE
+
+https://docs.google.com/document/d/1fUidMo0MBtDhZv09UeIs34lXglYVjBeZFKBUDd5wnn8/edit?usp=sharing
