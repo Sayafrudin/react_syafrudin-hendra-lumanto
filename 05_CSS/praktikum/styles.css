@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&family=Varela+Round&display=swap");
+:root {
+  --red: #bd4141;
+  --light-red: #fff6f6;
+  --bright-red: #ff5f5f;
+  --noto: "Noto Sans JP", sans-serif;
+  --vorelo: "Varela Round", sans-serif;
+}
+body {
+  margin: 0;
+  font-family: var(--vorelo);
+}
+#for-logo {
+  font-family: var(--noto);
+  color: var(--red) !important;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin: auto 0;
+  align-items: center;
+  color: var(--red) !important;
+}
+nav > div {
+  margin: 0 100px;
+}
+nav > div > ul {
+  padding: 0px;
+  margin: auto;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+nav > div > ul > li {
+  display: flex;
+  text-align: center;
+  text-decoration: none;
+  margin: 0;
+  justify-content: space-between;
+}
+nav > div > ul > li a {
+  display: flex;
+  color: var(--red) !important;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-radius: 7px;
+  font-weight: bold;
+}
+
+nav > div > ul > li a:hover {
+  background-color: var(--bright-red);
+  color: white !important;
+  transition: background-color 400ms linear;
+}
+
+h1 {
+  margin-bottom: 15px;
+}
+
+button {
+  margin-top: 10px;
+  font-weight: bolder;
+}
+input {
+  margin-bottom: 10px;
+  width: 50%;
+  height: 30px;
+  border-radius: 7px;
+  border: transparent !important;
+  box-shadow: 3px 3px 10px rgb(225, 225, 225);
+}
+#content {
+  padding: 70px 0px 70px 70px;
+  background-color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+}
+#sub-content1 {
+  margin-bottom: 10px;
+}
+#sub-content3 {
+  background-color: var(--light-red);
+  color: var(--red);
+  display: flex;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 30px;
+}
+
+#footer {
+  padding: 10px;
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center !important;
+  color: white;
+  background-color: var(--red);
+}
+#footer > div {
+  margin: 0 100px;
+}
+#watch-video-button {
+  width: 140px;
+  height: 50px;
+  background-color: transparent;
+  border: none !important;
+}
+#get-started-button {
+  width: 140px;
+  height: 50px;
+  border: transparent;
+  border-radius: 100px;
+  background-color: var(--bright-red);
+}
+#get-started-button2 {
+  width: 140px;
+  height: 50px;
+  border: transparent;
+  border-radius: 100px;
+  background-color: var(--bright-red);
+}
+button {
+  color: white;
+}
+#get-started-button:hover {
+  background-color: white !important;
+  color: var(--red);
+  transition: background-color 400ms linear;
+}
+#get-started-button2:hover {
+  background-color: white !important;
+  color: var(--red);
+  border: 2px solid var(--red) !important;
+  transition: background-color 400ms linear;
+}
+#watch-video-button:hover {
+  border-radius: 50px;
+  background-color: #ffffff !important;
+  color: var(--red);
+  transition: background-color 400ms linear;
+}
+#watch-video-button {
+  margin-left: 20px;
+}
+img {
+  width: 800px;
+}
