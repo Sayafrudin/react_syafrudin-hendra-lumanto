@@ -1,3 +1,3 @@
-# react_syafrudin_hendra_lumanto
+# react-syafrudin-hendra-lumanto
 
 Kumpulan tugas dari Alterra Academy
