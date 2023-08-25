@@ -181,7 +181,6 @@ button {
   display: flex !important;
   padding: 100px;
   justify-content: space-around;
-  gap: 200px;
   font-size: 0.86vw;
 }
 #bf-footer > div > h1,
