@@ -12,53 +12,9 @@ body {
 }
 
 /* Navbar */
-#for-logo {
-  font-family: var(--noto);
-  color: var(--red) !important;
-}
-nav {
-  display: flex;
-  justify-content: space-between;
-  margin: auto 0;
-  align-items: center;
-  color: var(--red) !important;
-  font-size: 0.8vw;
-}
-nav > div > a {
-  text-decoration: none;
+.navbar-brand,
+ul > li > .nav-link {
   color: var(--red);
-}
-nav > div {
-  margin: 0 100px;
-}
-nav > div > ul {
-  padding: 0px;
-  margin: auto;
-  list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-nav > div > ul > li {
-  display: flex;
-  text-align: center;
-  text-decoration: none;
-  margin: 0;
-  justify-content: space-between;
-}
-nav > div > ul > li a {
-  display: flex;
-  color: var(--red) !important;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  border-radius: 7px;
-  font-weight: bold;
-}
-nav > div > ul > li a:hover {
-  background-color: var(--bright-red);
-  color: white !important;
-  transition: background-color 400ms linear;
 }
 /* Navbar */
 
@@ -181,12 +137,15 @@ button {
   display: flex !important;
   padding: 100px;
   justify-content: space-around;
-  gap: 200px;
   font-size: 0.86vw;
 }
 #bf-footer > div > h1,
 #bf-footer > div > h3 {
   color: var(--red);
+}
+#bf-footer > div > h3 {
+  margin: 0.75em 0;
+  font-size: 1.5em;
 }
 #bf-footer > div > a {
   text-decoration: none !important;
