@@ -97,7 +97,7 @@ const validateInputs = () => {
       'input[name="freshness"]:checked'
     ).value;
   } else {
-    alert("Please select an option first.");
+    showError(radios, "Please select an option.");
   }
 
   if (
