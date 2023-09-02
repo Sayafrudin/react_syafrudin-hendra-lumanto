@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&dispay=swap");
+
+:root {
+  --success-color: #23cc71;
+  --error-color: #e74c3c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+i {
+  font-size: 5em;
+  color: #ffc26f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto 0 auto;
+}
+body {
+  background: linear-gradient(to right, #703e0a, #9c6a49, #ffc26f);
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: rgb(245, 245, 245);
+  border-radius: 5px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  width: 500px;
+}
+
+h2 {
+  color: #ffc26f;
+  text-align: center;
+  margin: 20px 0 0 0;
+}
+
+.form {
+  padding: 30px 40px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.radio {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.form-control label {
+  color: #777;
+  margin: 5 px;
+}
+
+.form-control > .input,
+.form-control select,
+.form-control textarea {
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.form-control textarea {
+  resize: none;
+  width: 100%;
+  height: 100px;
+}
+
+.form-control > .inputImage {
+  cursor: pointer;
+  outline: 0;
+  border-color: #dcdcdc;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+  outline: 0;
+  border-color: #777;
+}
+
+.form-control.success input,
+.form-control.success select,
+.form-control.success textarea {
+  border-color: var(--success-color);
+}
+
+.form-control.error input,
+.form-control.error select {
+  border-color: var(--error-color);
+}
+
+.form-control.error textarea {
+  border: 2px solid var(--error-color);
+}
+
+.form-control small {
+  color: var(--error-color);
+  position: absolute;
+  visibility: hidden;
+}
+
+.form-control.error small {
+  visibility: visible;
+}
+
+.form button {
+  cursor: pointer;
+  background-color: #703e0a;
+  border: 2px solid #703e0a;
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  font-size: 17px;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #cf781a;
+  border: 2px solid #cf781a;
+}
+
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
