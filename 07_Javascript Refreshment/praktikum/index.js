@@ -99,6 +99,16 @@ const validateInputs = () => {
     showSuccess(productprice);
   }
 
+  if (
+    productnameValue &&
+    productcategoryValue &&
+    radiosValue &&
+    imageproductValue &&
+    descriptionValue &&
+    productpriceValue
+  ) {
+  }
+
   alert(
     "Product name : " +
       productnameValue +
