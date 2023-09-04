@@ -6,7 +6,7 @@
 
 3. Javascript dapat berjalan dimanapun seperti browser, alat elektronik, mobile dll
 
-# Note : Yang dipelajari hari ini
+# Note : yang dipelajari hari ini
 
 Saya belajar mengenai struktur data dalam konteks bahasa pemrograman JavaScript. Selanjutnya, saya melakukan pembelajaran dengan berinteraksi secara langsung melalui live session dengan mentor. Materi yang akan kami telaah bersama meliputi metode-metode dalam JavaScript, konsep kelas (classes), fungsi-fungsi, serta pemahaman mendalam tentang Document Object Model (DOM) yang akan diaplikasikan dalam lingkup HTML.
 
