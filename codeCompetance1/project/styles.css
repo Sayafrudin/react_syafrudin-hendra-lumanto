@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Oswald&family=Roboto:wght@900&family=Varela+Round&display=swap");
+@media only screen and (max-width: 320px) {
+  body {
+    font-size: 2em;
+  }
+}
+
+:root {
+  --primary: #ffc26f;
+  --secondary: #895e43;
+  --tertiary: #3f2305;
+  --opsional: #757475;
+  --oswald: "Oswald", sans-serif;
+  --varela: "Varela Round", sans-serif;
+  --mplus: "M PLUS Rounded 1c", sans-serif;
+  --roboto: "Roboto", sans-serif;
+}
+
+body {
+  height: 100%;
+  background-color: white !important;
+}
+img {
+  width: 50px;
+}
+
+.navbar .navbar-nav .nav-link {
+  transition: all 0.5s;
+  border-radius: 2ch;
+  padding: 5px 1rem;
+  font-size: larger;
+  font-family: var(--varela);
+  color: var(--tertiary);
+}
+
+.navbar .navbar-nav .nav-link:hover {
+  font-size: larger;
+  color: white;
+  background-color: var(--primary);
+}
+
+.navbar .navbar-brand2 .btn {
+  transition: all 0.5s;
+  font-weight: 500;
+  font-size: large;
+  background-color: var(--tertiary);
+  font-family: var(--mplus);
+  text-decoration: none;
+  padding: 3px 30px;
+  color: white;
+}
+
+.navbar .navbar-brand2 .btn:hover {
+  color: var(--tertiary);
+  font-family: var(--mplus);
+  background-color: var(--primary);
+}
+
+.product {
+  width: 70%;
+}
+
+.content {
+  font-family: var(--roboto);
+  font-size: 6vw;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  font-family: var(--roboto);
+  font-size: 6vw;
+}
+
+.name {
+  color: var(--primary);
+  border: 5px solid;
+  border-radius: 15px;
+}
+
+.contact {
+  background-color: var(--primary);
+}
+
+#contact-us {
+  font-family: var(--varela);
+  font-weight: 900;
+  color: var(--secondary);
+  font-size: 2.3vw;
+}
+#text {
+  padding: 100px;
+}
+#contact-us-form {
+  padding: 100px;
+}
+
+#contact-us-desc {
+  width: 80%;
+}
+
+#contact-us-desc {
+  font-family: var(--varela);
+  color: white;
+  font-size: 1.3vw;
+}
+
+.form-label {
+  font-family: var(--varela);
+  color: white;
+  font-size: 1.1vw;
+  font-weight: 500;
+}
+
+.form-control {
+  background-color: #faf3ec;
+  border-color: transparent;
+}
+.form-control:focus {
+  background-color: #fafafa;
+  border-color: transparent;
+}
+#submit {
+  transition: all 0.5s;
+  color: white;
+  font-family: var(--varela);
+  background-color: var(--secondary);
+}
+
+#submit:hover {
+  color: white;
+  font-family: var(--varela);
+  background-color: var(--tertiary);
+}
