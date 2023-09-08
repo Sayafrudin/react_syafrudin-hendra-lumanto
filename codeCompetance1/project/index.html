@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      src="https://kit.fontawesome.com/ca08b18661.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,7 +19,7 @@
     <section>
       <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg fw-semibold p-4">
-          <div class="container-fluid 1 mx-5">
+          <div class="container-fluid">
             <button
               class="navbar-toggler"
               type="button"
@@ -27,6 +31,7 @@
             >
               <span class="navbar-toggler-icon"></span>
             </button>
+
             <div
               class="collapse navbar-collapse justify-content-around"
               id="navbarSupportedContent"
@@ -60,13 +65,17 @@
         </nav>
       </div>
     </section>
-    <section>
-      <div class="container-fluid content mt-5 pt-4 d-flex mb-5 pb-5">
+    <section class="d-flex justify-content-center align-items-center">
+      <div
+        class="container-fluid content mt-5 pt-4 d-flex mb-5 pb-5 justify-content-center"
+      >
         <div class="col-6 d-flex justify-content-center align-items-center">
           <div class="text">
-            <div class="container">
-              <p style="margin: 0; line-height: 10%">WELCOME '3')</p>
-              <p>TO OUR SHOP</p>
+            <div class="container d-flex flex-column">
+              <p style="margin: 0; line-height: 10%; text-align: center">
+                WELCOME '3')
+              </p>
+              <p style="text-align: center">TO OUR SHOP</p>
               <p class="name">SAE SAE SAE!</p>
             </div>
           </div>
@@ -84,8 +93,11 @@
           d="M0,128L48,112C96,96,192,64,288,85.3C384,107,480,181,576,208C672,235,768,213,864,176C960,139,1056,85,1152,96C1248,107,1344,181,1392,218.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
         ></path>
       </svg>
-      <div class="container-fluid d-flex contact">
-        <div class="col-6" id="text">
+      <div class="container-fluid d-flex contact justify-content-around">
+        <div
+          class="col-6 d-flex justify-content-center flex-column align-items-start w-25"
+          id="text"
+        >
           <p id="contact-us">Contuct Us</p>
           <p id="contact-us-desc">
             Need to get in touch with us? Either fill out the form with your
@@ -97,36 +109,29 @@
           <form action="" autocomplete="off">
             <div class="row">
               <div class="col-6">
-                <div class="mb-3">
-                  <label class="form-label">First name</label>
-                  <input type="text" class="form-control" required />
-                </div>
+                <label class="form-label">First name</label>
+                <input type="text" class="form-control" required />
               </div>
-
-              <div class="col-6">
-                <div class="mb-3">
-                  <label class="form-label">Last name</label>
-                  <input type="text" class="form-control" required />
-                </div>
+              <div class="col-6 mb-3">
+                <label class="form-label">Last name</label>
+                <input type="text" class="form-control" required />
               </div>
-              <div class="col-12">
-                <div class="mb-3">
-                  <label class="form-label">Email address</label>
-                  <input type="email" class="form-control" required />
-                </div>
+              <div class="col-12 mb-3">
+                <label class="form-label">Email address</label>
+                <input type="email" class="form-control" required />
               </div>
-              <div class="col-12">
-                <div class="mb-3">
-                  <label class="form-label">What can we help you with?</label>
-                  <textarea
-                    class="form-control"
-                    style="height: 100px"
-                    required
-                  ></textarea>
-                </div>
+              <div class="col-12 mb-3 contact-input">
+                <label class="form-label">What can we help you with?</label>
+                <textarea
+                  class="form-control"
+                  style="height: 100px"
+                  required
+                ></textarea>
               </div>
               <div class="col-6">
-                <button type="submit" id="submit" class="btn">Submit</button>
+                <button type="submit" id="submit" class="btn w-auto">
+                  Submit
+                </button>
               </div>
             </div>
           </form>
@@ -139,6 +144,84 @@
           d="M0,96L48,122.7C96,149,192,203,288,218.7C384,235,480,213,576,192C672,171,768,149,864,160C960,171,1056,213,1152,218.7C1248,224,1344,192,1392,176L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
         ></path>
       </svg>
+    </section>
+    <section>
+      <!-- Site footer -->
+
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#3f2305"
+          fill-opacity="1"
+          d="M0,160L80,160C160,160,320,160,480,176C640,192,800,224,960,234.7C1120,245,1280,235,1360,229.3L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+        ></path>
+      </svg>
+
+      <div
+        class="container-fluid footer-content d-flex justify-content-between pb-5"
+      >
+        <div
+          class="col-3 footer-left d-flex flex-column justify-content-center align-items-center w-25"
+        >
+          <a><img src="logoPutih.png" class="mb-2 footer-logo" /></a>
+
+          <p class="footer-company-name">EIYCHUUU © 2023</p>
+        </div>
+
+        <div class="col-4 footer-center">
+          <div
+            class="d-flex flex-row align-items-center footer-icon align-items-start mb-3"
+          >
+            <i class="fa fa-globe loc"></i>
+            <p class="my-0 ms-2">
+              <span>444 S. Cedros Ave</span> Solana Beach, California
+            </p>
+          </div>
+
+          <div class="d-flex flex-row align-items-center mb-3">
+            <i class="fa fa-phone phone"></i>
+            <p class="my-0 ms-2">+1.555.555.5555</p>
+          </div>
+
+          <div class="d-flex flex-row align-items-center link">
+            <i class="fa fa-envelope email"></i>
+            <p class="my-0 ms-2">
+              <a href="mailto:support@company.com">support@company.com</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-5 footer-right">
+          <p class="footer-company-about">
+            SAE adalah nama toko online yang dikelola 3 orang yang berisinial S,
+            A, dan E. Jadi itu sejarah dibalik nama SAE itu sendiri dan arti SAE
+            sendiri dalam bahasa Jawa itu Bagus
+          </p>
+
+          <div class="footer-icons">
+            <a
+              href="https://www.instagram.com/sayafrudinhl/"
+              target="_blank"
+              class="me-3"
+              ><i class="fa fa-instagram fa-xl"></i
+            ></a>
+            <a
+              href="https://twitter.com/justpinkycu"
+              target="_blank"
+              class="me-3"
+              ><i class="fa fa-twitter fa-xl"></i
+            ></a>
+            <a
+              href="https://www.tiktok.com/@sayafrudinhl"
+              target="_blank"
+              class="me-3"
+              ><i class="fa-brands fa-tiktok fa-xl"></i
+            ></a>
+            <a href="https://github.com/Sayafrudin/" target="_blank"
+              ><i class="fa fa-github fa-xl"></i
+            ></a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
