@@ -1,9 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Oswald&family=Roboto:wght@900&family=Varela+Round&display=swap");
-@media only screen and (max-width: 320px) {
-  body {
-    font-size: 2em;
-  }
-}
 
 :root {
   --primary: #ffc26f;
@@ -74,8 +69,12 @@ img {
 
 .name {
   color: var(--primary);
-  border: 5px solid;
-  border-radius: 15px;
+  /* background-color: var(--primary); */
+  border: 4px solid var(--primary);
+  border-radius: 10px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  text-align: center;
 }
 
 .contact {
@@ -86,29 +85,31 @@ img {
   font-family: var(--varela);
   font-weight: 900;
   color: var(--secondary);
-  font-size: 2.3vw;
+  font-size: calc(1rem + 3vw);
 }
 #text {
-  padding: 100px;
+  padding: 10px;
 }
 #contact-us-form {
-  padding: 100px;
+  padding: 30px;
 }
 
-#contact-us-desc {
-  width: 80%;
-}
+/* .row input {
+  width: 60%;
+  margin: 0;
+  padding: 0;
+} */
 
 #contact-us-desc {
   font-family: var(--varela);
   color: white;
-  font-size: 1.3vw;
+  font-size: calc(0.5rem + 1vw);
 }
 
 .form-label {
   font-family: var(--varela);
   color: white;
-  font-size: 1.1vw;
+  font-size: calc(0.5rem + 0.5vw);
   font-weight: 500;
 }
 
@@ -120,6 +121,7 @@ img {
   background-color: #fafafa;
   border-color: transparent;
 }
+
 #submit {
   transition: all 0.5s;
   color: white;
@@ -131,4 +133,50 @@ img {
   color: white;
   font-family: var(--varela);
   background-color: var(--tertiary);
+}
+
+/* footer */
+
+.footer-content {
+  background-color: var(--tertiary);
+}
+.footer-logo {
+  width: 7vw;
+}
+.footer-left p,
+.footer-center i,
+.footer-center p,
+.footer-right p,
+.footer-right a,
+.footer-center p a {
+  color: white;
+  font-size: calc(0.5rem + 0.5vw);
+  text-decoration: none;
+}
+
+.footer-center p a:hover {
+  transition: all 0.5s;
+  color: var(--primary);
+}
+
+.footer-left p,
+.footer-center p,
+.footer-right p {
+  font-family: var(--varela);
+}
+
+.footer-center i {
+  background-color: var(--secondary);
+  padding: 10px;
+  border-radius: 100px;
+}
+
+.footer-icons i:hover {
+  transition: all 0.5s;
+  color: var(--primary);
+}
+
+.footer-center p a {
+  color: white;
+  font-size: calc(0.5rem + 0.5vw);
 }
