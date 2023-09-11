@@ -39,15 +39,15 @@ img {
   font-weight: 500;
   font-size: large;
   background-color: var(--tertiary);
-  font-family: var(--mplus);
+  font-family: var(--varela);
   text-decoration: none;
   padding: 3px 30px;
   color: white;
 }
 
 .navbar .navbar-brand2 .btn:hover {
+  color: white;
   color: var(--tertiary);
-  font-family: var(--mplus);
   background-color: var(--primary);
 }
 
