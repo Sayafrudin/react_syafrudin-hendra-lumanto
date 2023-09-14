@@ -9,9 +9,9 @@ import Button from "./Button";
 import "../assets/Form.css";
 
 export default function Form() {
-  //Form Validations
   const [errors, setErrors] = useState("");
   const [productName, setProductName] = useState("");
+  /* Validasi ketika klik Button Submit
   // const handleChange = (e) => {
   //   const { product_name, value } = e.target;
   //   setProductName({ ...productName, [product_name]: value });
@@ -33,7 +33,9 @@ export default function Form() {
   //     alert("Form Submitted successfully");
   //   }
   // };
+  */
 
+  //Validasi ketika Input
   const handleProductName = (e) => {
     const value = e.target.value;
     setProductName(value);
@@ -47,17 +49,16 @@ export default function Form() {
     }
   };
 
-  //Form Validations
-
   return (
     <div className="container w-50">
-      <form className="row " autoComplete="off">
+      <form className="row " autoComplete="off" /*onSubmit={handleSubmit}*/>
         <div className="container">
           <div className="row p-3">
             <InputField
               label="Product Name"
               type="text"
               value={productName}
+              // onChange={handleChange}
               onChange={handleProductName}
             ></InputField>
             {/* {errors.product_name && <span>{errors.product_name}</span>} */}
