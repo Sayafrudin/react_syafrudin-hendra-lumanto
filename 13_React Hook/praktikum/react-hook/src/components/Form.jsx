@@ -1,8 +1,7 @@
 import { useState } from "react";
+import { BsFillTrash3Fill, BsFillPencilFill } from "react-icons/bs";
 import React from "react";
 import InputField from "./InputField";
-import SelectInput from "./SelectInput";
-import RadioInput from "./RadioInput";
 import TextArea from "./TextArea";
 import WrapInputField from "./WrapInputField";
 import Button from "./Button";
@@ -15,7 +14,15 @@ export default function Form() {
   const [inputData, setInputData] = useState({
     pname: "",
     pprice: "",
+    pcategory: "",
+    freshness: "",
   });
+  const options = [
+    { label: "Food", value: "Food" },
+    { label: "Clothing", value: "Clothing" },
+    { label: "Else", value: "Else" },
+  ];
+
   /* Validasi ketika klik Button Submit
   // const handleChange = (e) => {
   //   const { product_name, value } = e.target;
@@ -43,12 +50,11 @@ export default function Form() {
   function data(e) {
     setInputData({ ...inputData, [e.target.name]: e.target.value });
   }
-  const { pname, pprice } = inputData;
+  const { pname, pprice, pcategory, freshness } = inputData;
   function addInputData() {
-    setArray([...array, { pname, pprice }]);
-    setInputData({ pname: "", pprice: "" });
+    setArray([...array, { pname, pprice, pcategory, freshness }]);
+    setInputData({ pname: "", pprice: "", pcategory: "", freshness: "" });
   }
-  console.log(array);
 
   // //Validasi ketika Input
   // const handleProductName = (e) => {
@@ -81,21 +87,65 @@ export default function Form() {
             <span style={{ color: "red" }}>{errors}</span>
 
             <div className="row">
-              <SelectInput
+              {/* <SelectInput
                 label="Product Category"
-                value1="Food"
-                value2="Clothing"
-                value3="Else"
-              ></SelectInput>
+                value={val}
+                onChange={(e) => setVal(e.target.value)}
+                optionLabel={dataSelected.map((opt) => (
+                  <option>{opt}</option>
+                ))}
+              ></SelectInput> */}
+              <div className="w-auto mb-4">
+                <label className="form-label">Product Category</label>
+                <select
+                  onChange={data}
+                  className="form-select"
+                  name="pcategory"
+                >
+                  <option type="radio" name="freshness" disabled selected>
+                    Choose...
+                  </option>
+                  {options.map((option) => (
+                    <option value={option.value}>{option.label}</option>
+                  ))}
+                </select>
+              </div>
             </div>
             <InputField label="Image of Product" type="file"></InputField>
             <div className="row">
-              <RadioInput
+              {/* <RadioInput
                 label="Product Freshness"
                 value1="Brand New"
                 value2="Second Hand"
                 value3="Refurbished"
-              ></RadioInput>
+              ></RadioInput> */}
+              <div className="w-auto mb-4">
+                <label className="form-label">Product Category</label>
+                <br></br>
+                <input
+                  type="radio"
+                  name="freshness"
+                  value="Brand New"
+                  onChange={data}
+                />
+                &nbsp;Brand New
+                <br></br>
+                <input
+                  type="radio"
+                  name="freshness"
+                  value="Second Hand"
+                  onChange={data}
+                />
+                &nbsp;Second Hand
+                <br></br>
+                <input
+                  type="radio"
+                  name="freshness"
+                  value="Refurbished"
+                  onChange={data}
+                />
+                &nbsp;Refurbished
+              </div>
             </div>
             <div className="row">
               <TextArea label="Additional Description"></TextArea>
@@ -125,12 +175,15 @@ export default function Form() {
       </form>
       <br></br>
       <div className="">
-        <table className="table table-striped">
+        <table className="table table-hover">
           <thead>
             <tr>
               <th>No.</th>
               <th>Product Name</th>
+              <th>Product Category</th>
+              <th>Product Freshness</th>
               <th>Product Price</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -140,7 +193,22 @@ export default function Form() {
                   <tr key={i}>
                     <td>{i++}</td>
                     <td>{item.pname}</td>
+                    <td>{item.pcategory}</td>
+                    <td>{item.freshness}</td>
                     <td>{item.pprice}</td>
+                    <td>
+                      <button type="button" class="btn btn-primary">
+                        <BsFillPencilFill
+                          style={{ fontSize: "1.2rem", color: "white" }}
+                        ></BsFillPencilFill>
+                      </button>
+                      &nbsp;&nbsp;
+                      <button type="button" class="btn btn-danger">
+                        <BsFillTrash3Fill
+                          style={{ fontSize: "1.2rem", color: "white" }}
+                        ></BsFillTrash3Fill>
+                      </button>
+                    </td>
                   </tr>
                 );
               })}
