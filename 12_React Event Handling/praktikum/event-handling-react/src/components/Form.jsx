@@ -92,13 +92,14 @@ export default function Form() {
               ></WrapInputField>
             </div>
             <Button
-              label="Create Product"
               style={{
                 backgroundColor: "#bd4141",
                 border: "none",
                 color: "white",
               }}
-            ></Button>
+            >
+              Create Product
+            </Button>
           </div>
         </div>
       </form>

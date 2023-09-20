@@ -163,11 +163,18 @@ export default function Form() {
                     <td>{item.freshness}</td>
                     <td>Rp. {item.pprice}</td>
                     <td>
-                      <button type="button" class="btn btn-primary">
+                      <Button
+                        type="button"
+                        style={{
+                          backgroundColor: "green",
+                          border: "none",
+                          color: "white",
+                        }}
+                      >
                         <BsFillPencilFill
                           style={{ fontSize: "1.2rem", color: "white" }}
                         ></BsFillPencilFill>
-                      </button>
+                      </Button>
                       &nbsp;&nbsp;
                       <Button
                         type="button"
@@ -191,7 +198,7 @@ export default function Form() {
                         btnSuccess="Hapus"
                         onClick={() => deleteData(i)}
                       >
-                        asdasdasd
+                        Apakah ingin menghapus item {item.pname}
                       </Modal>
                     </td>
                   </tr>
