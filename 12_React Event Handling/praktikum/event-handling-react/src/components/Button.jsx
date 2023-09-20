@@ -1,7 +1,7 @@
-const Button = ({ label, style, onClick }) => {
+const Button = ({ label, style, onClick, children }) => {
   return (
     <button type="submit" className="btn" style={style} onClick={onClick}>
-      {label}
+      {children}
     </button>
   );
 };

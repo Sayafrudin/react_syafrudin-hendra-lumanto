@@ -36,14 +36,15 @@ const Header = () => {
       </div>
       <div className="d-flex justify-content-center gap-md-3">
         <Button
-          label="Change Language"
           style={{
             backgroundColor: "#bd4141",
             border: "none",
             color: "white",
           }}
           onClick={changeText}
-        ></Button>
+        >
+          Change Language : {text}
+        </Button>
         <button className="btn btn-secondary" onClick={handleClick}>
           Random Number : {num}
         </button>
