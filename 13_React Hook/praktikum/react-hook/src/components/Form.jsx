@@ -5,11 +5,12 @@ import InputField from "./InputField";
 import TextArea from "./TextArea";
 import WrapInputField from "./WrapInputField";
 import Button from "./Button";
+import Modal from "./Modal";
 import "../assets/Form.css";
 
 export default function Form() {
   const [errors, setErrors] = useState("");
-  // const [productName, setProductName] = useState("");
+  const [productName, setProductName] = useState("");
   const [array, setArray] = useState([]);
   const [inputData, setInputData] = useState({
     pname: "",
@@ -23,31 +24,17 @@ export default function Form() {
     { label: "Else", value: "Else" },
   ];
 
-  /* Validasi ketika klik Button Submit
-  // const handleChange = (e) => {
-  //   const { product_name, value } = e.target;
-  //   setProductName({ ...productName, [product_name]: value });
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const validationErrors = {};
-
-  //   if (!productName.product_name.trim()) {
-  //     validationErrors.product_name = "aaaa";
-  //   } else {
-  //     validationErrors.product_name = "asdasd";
-  //   }
-
-  //   setErrors(validationErrors);
-
-  //   if (Object.keys(validationErrors).length === 0) {
-  //     alert("Form Submitted successfully");
-  //   }
-  // };
-  */
-
   function data(e) {
+    const value = e.target.value;
+    setProductName(value);
+
+    if (value.length === 0) {
+      setErrors("Product Name tidak boleh kosong");
+    } else if (value.length > 10) {
+      setErrors("Product Name tidak boleh melebihi 10 karakter");
+    } else {
+      setErrors("");
+    }
     setInputData({ ...inputData, [e.target.name]: e.target.value });
   }
   const { pname, pprice, pcategory, freshness } = inputData;
@@ -56,23 +43,16 @@ export default function Form() {
     setInputData({ pname: "", pprice: "", pcategory: "", freshness: "" });
   }
 
-  // //Validasi ketika Input
-  // const handleProductName = (e) => {
-  //   const value = e.target.value;
-  //   setProductName(value);
-
-  //   if (value.length === 0) {
-  //     setErrors("Product Name tidak boleh kosong");
-  //   } else if (value.length > 10) {
-  //     setErrors("Product Name tidak boleh melebihi 10 karakter");
-  //   } else {
-  //     setErrors("");
-  //   }
-  // };
+  function deleteData(i) {
+    console.log(i, "ini row yang akan dihapus");
+    const total = [...array];
+    total.splice(i, 1);
+    setArray(total);
+  }
 
   return (
     <div className="container w-50">
-      <form className="row " autoComplete="off" /*onSubmit={handleSubmit}*/>
+      <form className="row " autoComplete="off">
         <div className="container">
           <div className="row p-3">
             <InputField
@@ -80,21 +60,12 @@ export default function Form() {
               type="text"
               name="pname"
               value={inputData.pname}
-              // onChange={handleChange}
               onChange={data}
             ></InputField>
-            {/* {errors.product_name && <span>{errors.product_name}</span>} */}
+
             <span style={{ color: "red" }}>{errors}</span>
 
             <div className="row">
-              {/* <SelectInput
-                label="Product Category"
-                value={val}
-                onChange={(e) => setVal(e.target.value)}
-                optionLabel={dataSelected.map((opt) => (
-                  <option>{opt}</option>
-                ))}
-              ></SelectInput> */}
               <div className="w-auto mb-4">
                 <label className="form-label">Product Category</label>
                 <select
@@ -113,12 +84,6 @@ export default function Form() {
             </div>
             <InputField label="Image of Product" type="file"></InputField>
             <div className="row">
-              {/* <RadioInput
-                label="Product Freshness"
-                value1="Brand New"
-                value2="Second Hand"
-                value3="Refurbished"
-              ></RadioInput> */}
               <div className="w-auto mb-4">
                 <label className="form-label">Product Category</label>
                 <br></br>
@@ -161,7 +126,6 @@ export default function Form() {
               ></WrapInputField>
             </div>
             <Button
-              label="Create Product"
               style={{
                 backgroundColor: "#bd4141",
                 border: "none",
@@ -169,7 +133,9 @@ export default function Form() {
               }}
               type="button"
               onClick={addInputData}
-            ></Button>
+            >
+              Create Product
+            </Button>
           </div>
         </div>
       </form>
@@ -191,11 +157,11 @@ export default function Form() {
               array.map((item, i) => {
                 return (
                   <tr key={i}>
-                    <td>{i++}</td>
+                    <td>{i + 1}</td>
                     <td>{item.pname}</td>
                     <td>{item.pcategory}</td>
                     <td>{item.freshness}</td>
-                    <td>{item.pprice}</td>
+                    <td>Rp. {item.pprice}</td>
                     <td>
                       <button type="button" class="btn btn-primary">
                         <BsFillPencilFill
@@ -203,11 +169,30 @@ export default function Form() {
                         ></BsFillPencilFill>
                       </button>
                       &nbsp;&nbsp;
-                      <button type="button" class="btn btn-danger">
+                      <Button
+                        type="button"
+                        toggle="modal"
+                        target="#delete"
+                        style={{
+                          backgroundColor: "#bd4141",
+                          border: "none",
+                          color: "white",
+                        }}
+                      >
                         <BsFillTrash3Fill
                           style={{ fontSize: "1.2rem", color: "white" }}
                         ></BsFillTrash3Fill>
-                      </button>
+                      </Button>
+                      <Modal
+                        className="modal fade"
+                        id="delete"
+                        title="Delete Data"
+                        btnClose="Back"
+                        btnSuccess="Hapus"
+                        onClick={() => deleteData(i)}
+                      >
+                        asdasdasd
+                      </Modal>
                     </td>
                   </tr>
                 );
