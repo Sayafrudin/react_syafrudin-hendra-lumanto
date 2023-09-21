@@ -140,16 +140,18 @@ export default function Form() {
         </div>
       </form>
       <br></br>
-      <div className="">
-        <table className="table table-hover">
-          <thead>
+      <div>
+        <h2>List Product</h2>
+        <table className="table table-hover ">
+          <thead className="table-danger ">
             <tr>
-              <th>No.</th>
+              <th>No</th>
+              <th>Id</th>
               <th>Product Name</th>
               <th>Product Category</th>
               <th>Product Freshness</th>
               <th>Product Price</th>
-              <th>Aksi</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -158,6 +160,7 @@ export default function Form() {
                 return (
                   <tr key={i}>
                     <td>{i + 1}</td>
+                    <td>{crypto.randomUUID()}</td>
                     <td>{item.pname}</td>
                     <td>{item.pcategory}</td>
                     <td>{item.freshness}</td>
@@ -175,7 +178,6 @@ export default function Form() {
                           style={{ fontSize: "1.2rem", color: "white" }}
                         ></BsFillPencilFill>
                       </Button>
-                      &nbsp;&nbsp;
                       <Button
                         type="button"
                         toggle="modal"
