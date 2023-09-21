@@ -1,4 +1,4 @@
-const Button = ({ label, style, onClick, children }) => {
+const Button = ({ style, onClick, children }) => {
   return (
     <button type="submit" className="btn" style={style} onClick={onClick}>
       {children}
