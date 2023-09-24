@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BsFillTrash3Fill, BsFillPencilFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 import React from "react";
 import InputField from "./InputField";
 import TextArea from "./TextArea";
@@ -39,7 +40,10 @@ export default function Form() {
   }
   const { pname, pprice, pcategory, freshness } = inputData;
   function addInputData() {
-    setArray([...array, { pname, pprice, pcategory, freshness }]);
+    setArray([
+      ...array,
+      { id: crypto.randomUUID(), pname, pprice, pcategory, freshness },
+    ]);
     setInputData({ pname: "", pprice: "", pcategory: "", freshness: "" });
   }
 
@@ -151,61 +155,64 @@ export default function Form() {
               <th>Product Category</th>
               <th>Product Freshness</th>
               <th>Product Price</th>
-              <th>Action</th>
+              <th colSpan={2}>Action</th>
             </tr>
           </thead>
           <tbody>
-            {array &&
-              array.map((item, i) => {
-                return (
-                  <tr key={i}>
-                    <td>{i + 1}</td>
-                    <td>{crypto.randomUUID()}</td>
-                    <td>{item.pname}</td>
-                    <td>{item.pcategory}</td>
-                    <td>{item.freshness}</td>
-                    <td>Rp. {item.pprice}</td>
-                    <td>
-                      <Button
-                        type="button"
-                        style={{
-                          backgroundColor: "green",
-                          border: "none",
-                          color: "white",
-                        }}
-                      >
-                        <BsFillPencilFill
-                          style={{ fontSize: "1.2rem", color: "white" }}
-                        ></BsFillPencilFill>
-                      </Button>
-                      <Button
-                        type="button"
-                        toggle="modal"
-                        target="#delete"
-                        style={{
-                          backgroundColor: "#bd4141",
-                          border: "none",
-                          color: "white",
-                        }}
-                      >
-                        <BsFillTrash3Fill
-                          style={{ fontSize: "1.2rem", color: "white" }}
-                        ></BsFillTrash3Fill>
-                      </Button>
-                      <Modal
-                        className="modal fade"
-                        id="delete"
-                        title="Delete Data"
-                        btnClose="Back"
-                        btnSuccess="Hapus"
-                        onClick={() => deleteData(i)}
-                      >
-                        Apakah ingin menghapus item {item.pname}
-                      </Modal>
-                    </td>
-                  </tr>
-                );
-              })}
+            {array.map((item, i) => {
+              return (
+                <tr key={i}>
+                  <td>{i + 1}</td>
+                  <td>
+                    <Link to={`/product/${item.id}`}>{item.id}</Link>
+                  </td>
+                  <td>{item.pname}</td>
+                  <td>{item.pcategory}</td>
+                  <td>{item.freshness}</td>
+                  <td>Rp. {item.pprice}</td>
+                  <td>
+                    <Button
+                      type="button"
+                      style={{
+                        backgroundColor: "green",
+                        border: "none",
+                        color: "white",
+                      }}
+                    >
+                      <BsFillPencilFill
+                        style={{ fontSize: "1.2rem", color: "white" }}
+                      ></BsFillPencilFill>
+                    </Button>
+                  </td>
+                  <td>
+                    <Button
+                      type="button"
+                      toggle="modal"
+                      target="#delete"
+                      style={{
+                        backgroundColor: "#bd4141",
+                        border: "none",
+                        color: "white",
+                      }}
+                    >
+                      <BsFillTrash3Fill
+                        style={{ fontSize: "1.2rem", color: "white" }}
+                      ></BsFillTrash3Fill>
+                    </Button>
+                    <Modal
+                      className="modal fade"
+                      id="delete"
+                      title="Delete Data"
+                      btnClose="Back"
+                      btnSuccess="Hapus"
+                      onClick={() => deleteData(i)}
+                    >
+                      Apakah ingin menghapus item {item.pname}
+                    </Modal>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
