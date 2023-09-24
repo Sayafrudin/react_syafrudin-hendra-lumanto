@@ -43,7 +43,7 @@ export default function Modal({
             </button>
             <button
               type="button"
-              className="btn btn-danger"
+              className="btn btn-primary"
               data-bs-dismiss="modal"
               onClick={onClick}
             >
