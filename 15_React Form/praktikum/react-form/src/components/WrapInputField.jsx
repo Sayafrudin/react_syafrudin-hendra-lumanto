@@ -1,6 +1,6 @@
 const WrapInputField = ({ label, type, span, value, name, onChange }) => {
   return (
-    <div className="col-12 mb-4">
+    <div className="col-12">
       <div className="input-group">
         <label className="form-label">{label}</label>
         <div className="input-group">

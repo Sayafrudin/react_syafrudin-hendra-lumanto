@@ -43,7 +43,7 @@ const Header = () => {
           }}
           onClick={changeText}
         >
-          Change Language
+          Change Language {text}
         </Button>
         <Button
           style={{
