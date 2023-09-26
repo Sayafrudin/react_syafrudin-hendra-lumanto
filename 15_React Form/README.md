@@ -1,4 +1,4 @@
-# Summary React FOrm
+# Summary React Form
 
 1. Form adalah suatu halam atau page yang digunakan untuk menghandle inputan data dari user Input
 
