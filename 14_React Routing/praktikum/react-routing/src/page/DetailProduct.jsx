@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
+
 function DetailProduct() {
+  const navigate = useNavigate();
   return (
     <div className="card">
       <div className="card-header">asdasd</div>
@@ -23,7 +27,14 @@ function DetailProduct() {
           </tbody>
         </table>
       </div>
-      <div className="card-footer text-body-secondary">2 days ago</div>
+      <div className="card-footer text-body-secondary">
+        <Button
+          style={{ backgroundColor: "green", color: "white" }}
+          onClick={() => navigate(-1)}
+        >
+          asdasd
+        </Button>
+      </div>
     </div>
   );
 }

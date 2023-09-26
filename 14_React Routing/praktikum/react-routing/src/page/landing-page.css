@@ -14,7 +14,7 @@ body {
 /* Navbar */
 .navbar-brand,
 ul > li > .nav-link {
-  color: var(--red);
+  color: white;
 }
 /* Navbar */
 

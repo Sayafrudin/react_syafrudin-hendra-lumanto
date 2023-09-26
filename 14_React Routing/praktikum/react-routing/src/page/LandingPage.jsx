@@ -1,4 +1,4 @@
-import image from "/images/image.png";
+import image from "/image.png";
 import "./landing-page.css";
 import { useNavigate } from "react-router-dom";
 import React from "react";
@@ -8,7 +8,10 @@ function LandingPage() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg fw-semibold p-3">
+      <nav
+        className="navbar navbar-expand-lg navbar-dark fw-semibold p-3"
+        style={{ backgroundColor: "#bd4141" }}
+      >
         <div className="container-fluid mx-5">
           <a className="navbar-brand" href="#">
             Simple Header
@@ -74,7 +77,7 @@ function LandingPage() {
                 className="img-responsive mb-3"
                 style={{ maxHeight: 350 }}
                 src={image}
-                alt="Image"
+                alt="image"
               />
               <h3 className="text-center" style={{ color: "#bd4141" }}>
                 Syafrudin Hendra Lumanto
