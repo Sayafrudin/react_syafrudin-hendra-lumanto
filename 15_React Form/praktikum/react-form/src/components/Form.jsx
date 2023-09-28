@@ -64,7 +64,7 @@ export default function Form() {
     if (!/^[\s\t\r]*\S+/.test(inputData.pprice)) {
       validationErrors.pprice = "Product Price tidak boleh koosng";
     } else if (!/^[0-9]{3,}$/.test(inputData.pprice)) {
-      validationErrors.pprice = "Hanya boleh andka & minimal 3 karakter";
+      validationErrors.pprice = "Hanya boleh angka & minimal 3 karakter";
     }
 
     setErrors(validationErrors);
