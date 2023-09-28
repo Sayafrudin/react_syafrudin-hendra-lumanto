@@ -37,36 +37,34 @@ export default function Form() {
   const addInputData = (e) => {
     e.preventDefault();
     const validationErrors = {};
-    if (!inputData.pname) {
+    if (!/^[\s\t\r]*\S+/.test(inputData.pname)) {
       validationErrors.pname = "Product Name tidak boleh koosng";
     } else if (!/^[a-zA-Z ]{3,10}$/.test(inputData.pname)) {
       validationErrors.pname =
         "Hanya boleh Text, minimal 3 karakter & tidak boleh lebih dari 10 karakter";
     }
 
-    if (!inputData.pcategory) {
+    if (!/^[\s\t\r]*\S+/.test(inputData.pcategory)) {
       validationErrors.pcategory = "Pilih Product Category";
     } else {
     }
 
     if (!inputData.pimage) {
       validationErrors.pimage = "Product Image tidak boleh kosong";
+    } else if (!/(jpe?g|png)$/i.test(inputData.pimage)) {
+      validationErrors.pimage = "Hanya Format .png, .jpg ,.jpeg";
     } else {
     }
 
-    if (!inputData.freshness) {
+    if (!/^[\s\t\r]*\S+/.test(inputData.freshness)) {
       validationErrors.freshness = "Pilih Product Freshness";
     } else {
     }
 
-    if (!inputData.pprice) {
+    if (!/^[\s\t\r]*\S+/.test(inputData.pprice)) {
       validationErrors.pprice = "Product Price tidak boleh koosng";
     } else if (!/^[0-9]{3,}$/.test(inputData.pprice)) {
       validationErrors.pprice = "Hanya boleh andka & minimal 3 karakter";
-    }
-
-    if (e.target.files && e.target.files[0]) {
-      setInputData(URL.createObjectURL(e.target.files[0]));
     }
 
     setErrors(validationErrors);
@@ -99,6 +97,8 @@ export default function Form() {
     total.splice(i, 1);
     setArray(total);
   }
+
+  console.log(array);
 
   return (
     <div className="container w-50">
@@ -237,7 +237,7 @@ export default function Form() {
                     </td>
                     <td>{item.pname}</td>
                     <td>{item.pcategory}</td>
-                    <td>{<img src={pimage} alt="preview image" />}</td>
+                    <td>{<img src={item.pimage} alt="preview image" />}</td>
                     <td>{item.freshness}</td>
                     <td>Rp. {item.pprice}</td>
                     <td>
@@ -277,7 +277,8 @@ export default function Form() {
                         btnSuccess="Hapus"
                         onClick={() => deleteData(i)}
                       >
-                        Apakah ingin menghapus item {item.pname}
+                        Apakah ingin menghapus item{" "}
+                        <strong>{item.pname}</strong>
                       </Modal>
                     </td>
                   </tr>
