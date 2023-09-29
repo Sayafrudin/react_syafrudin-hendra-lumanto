@@ -1,15 +1,14 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import CreateProduct from "./page/CreateProduct";
 import LandingPage from "./page/LandingPage";
-import DetailProduct from "./page/DetailProduct";
+import AboutUsPage from "./page/AboutUsPage";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/create-product" element={<CreateProduct />} />
-        <Route path="/product/:id" element={<DetailProduct />} />
+        <Route path="/about-us" element={<AboutUsPage />} />
       </Routes>
     </Router>
   );
