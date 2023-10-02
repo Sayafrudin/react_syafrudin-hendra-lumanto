@@ -4,14 +4,14 @@
 
 - HTTP Response Code adalah kode numerik yang dikirim oleh server web ke peramban (browser) atau klien lainnya sebagai respons atas permintaan (request) yang dikirim oleh klien. Setiap kode memiliki arti tertentu yang mengindikasikan hasil dari permintaan tersebut. Berikut adalah beberapa kode respons HTTP yang umum digunakan:
 
-  1. **200** OK
-  2. **201** Created
-  3. **204** No Content
-  4. **301** Moved Permanently
-  5. **400** Bad Request
-  6. **401** Unauthorized
-  7. **403** Forbidden
-  8. **404** Not Found
-  9. **500** Internal Server Error
+  - **200** OK
+  - **201** Created
+  - **204** No Content
+  - **301** Moved Permanently
+  - **400** Bad Request
+  - **401** Unauthorized
+  - **403** Forbidden
+  - **404** Not Found
+  - **500** Internal Server Error
 
 - REST API adalah pendekatan desain perangkat lunak yang menggunakan konsep sederhana seperti sumber daya (resources), operasi berbasis HTTP (seperti GET, POST, PUT, DELETE), dan representasi data dalam format yang umum seperti JSON atau XML untuk memungkinkan aplikasi berkomunikasi satu sama lain melalui jaringan.
