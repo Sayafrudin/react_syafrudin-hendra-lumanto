@@ -59,10 +59,6 @@ export default function Form() {
                 }}
                 value={inputData.pname}
               ></InputField>
-
-              {errors.pname && (
-                <span style={{ color: "red" }}>{errors.pname}</span>
-              )}
             </div>
 
             <div className="row">
@@ -88,9 +84,6 @@ export default function Form() {
                     <option value={option.value}>{option.label}</option>
                   ))}
                 </select>
-                {errors.pcategory && (
-                  <span style={{ color: "red" }}>{errors.pcategory}</span>
-                )}
               </div>
             </div>
             <div className="mb-4">
@@ -108,9 +101,6 @@ export default function Form() {
                   });
                 }}
               ></InputField>
-              {errors.pimage && (
-                <span style={{ color: "red" }}>{errors.pimage}</span>
-              )}
             </div>
             <div className="row">
               <div className="w-auto mb-4">
@@ -163,9 +153,6 @@ export default function Form() {
                   }}
                 />
                 &nbsp;Refurbished
-                {errors.freshness && (
-                  <span style={{ color: "red" }}>{errors.freshness}</span>
-                )}
               </div>
             </div>
             <div className="row">
@@ -188,9 +175,6 @@ export default function Form() {
                 }}
                 value={inputData.pprice}
               ></WrapInputField>
-              {errors.pprice && (
-                <span style={{ color: "red" }}>{errors.pprice}</span>
-              )}
             </div>
             <Button
               style={{
