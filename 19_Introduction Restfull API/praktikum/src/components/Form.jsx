@@ -11,13 +11,11 @@ import Modal from "./Modal";
 import "../assets/Form.css";
 
 export default function Form() {
-  const [errors, setErrors] = useState({});
-  const [array, setArray] = useState([]);
   const [inputData, setInputData] = useState({
-    pname: "",
-    pprice: "",
-    pimage: "",
-    pcategory: "",
+    name: "",
+    price: "",
+    image: "",
+    category: "",
     freshness: "",
   });
   const options = [
@@ -26,83 +24,18 @@ export default function Form() {
     { label: "Else", value: "Else" },
   ];
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setInputData({
-      ...inputData,
-      [name]: value,
-    });
-  };
-
-  const { pname, pprice, pimage, pcategory, freshness } = inputData;
-  const addInputData = (e) => {
-    e.preventDefault();
-    const validationErrors = {};
-    if (!/^[\s\t\r]*\S+/.test(inputData.pname)) {
-      validationErrors.pname = "Product Name tidak boleh koosng";
-    } else if (!/^[a-zA-Z ]{3,10}$/.test(inputData.pname)) {
-      validationErrors.pname =
-        "Hanya boleh Text, minimal 3 karakter & tidak boleh lebih dari 10 karakter";
-    }
-
-    if (!/^[\s\t\r]*\S+/.test(inputData.pcategory)) {
-      validationErrors.pcategory = "Pilih Product Category";
-    } else {
-    }
-
-    if (!inputData.pimage) {
-      validationErrors.pimage = "Product Image tidak boleh kosong";
-    } else if (!/(jpe?g|png)$/i.test(inputData.pimage)) {
-      validationErrors.pimage = "Hanya Format .png, .jpg ,.jpeg";
-    } else {
-    }
-
-    if (!/^[\s\t\r]*\S+/.test(inputData.freshness)) {
-      validationErrors.freshness = "Pilih Product Freshness";
-    } else {
-    }
-
-    if (!/^[\s\t\r]*\S+/.test(inputData.pprice)) {
-      validationErrors.pprice = "Product Price tidak boleh koosng";
-    } else if (!/^[0-9]{3,}$/.test(inputData.pprice)) {
-      validationErrors.pprice = "Hanya boleh angka & minimal 3 karakter";
-    }
-
-    setErrors(validationErrors);
-
-    if (Object.keys(validationErrors).length === 0) {
-      setArray([
-        ...array,
-        {
-          id: crypto.randomUUID(),
-          pname,
-          pprice,
-          pimage,
-          pcategory,
-          freshness,
-        },
-      ]);
-      setInputData({
-        pname: "",
-        pprice: "",
-        pimage: "",
-        pcategory: "",
-        freshness: "",
+  const insertProduct = () => {
+    axios
+      .post("https://6521a2daa4199548356d6f22.mockapi.io/products", inputData)
+      .then((response) => {
+        if (response.status == 201) {
+          alert("Sukses menambahkan data!");
+        }
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
       });
-    }
-  };
-
-  function deleteData(i) {
-    console.log(i, "ini row yang akan dihapus");
-    const total = [...array];
-    total.splice(i, 1);
-    setArray(total);
-  }
-
-  console.log(array);
-
-  const inputDataAPI = (e) => {
-    axios.request(inputDataAPI);
   };
 
   return (
@@ -114,14 +47,18 @@ export default function Form() {
               <InputField
                 label="Product Name"
                 type="text"
-                name="pname"
-                onChange={handleChange}
+                name="name"
+                onChange={(e) => {
+                  setInputData({
+                    name: e.target.value,
+                    price: inputData.price,
+                    image: inputData.image,
+                    category: inputData.category,
+                    freshness: inputData.freshness,
+                  });
+                }}
                 value={inputData.pname}
               ></InputField>
-
-              {errors.pname && (
-                <span style={{ color: "red" }}>{errors.pname}</span>
-              )}
             </div>
 
             <div className="row">
@@ -129,8 +66,16 @@ export default function Form() {
                 <label className="form-label">Product Category</label>
                 <select
                   className="form-select required"
-                  name="pcategory"
-                  onChange={handleChange}
+                  name="category"
+                  onChange={(e) => {
+                    setInputData({
+                      name: inputData.name,
+                      price: inputData.price,
+                      image: inputData.image,
+                      category: e.target.value,
+                      freshness: inputData.freshness,
+                    });
+                  }}
                 >
                   <option name="pcategory" value="" disabled selected>
                     Choose...
@@ -139,21 +84,23 @@ export default function Form() {
                     <option value={option.value}>{option.label}</option>
                   ))}
                 </select>
-                {errors.pcategory && (
-                  <span style={{ color: "red" }}>{errors.pcategory}</span>
-                )}
               </div>
             </div>
             <div className="mb-4">
               <InputField
                 label="Image of Product"
-                name="pimage"
+                name="image"
                 type="file"
-                onChange={handleChange}
+                onChange={(e) => {
+                  setInputData({
+                    name: inputData.name,
+                    price: inputData.price,
+                    image: e.target.value,
+                    category: inputData.category,
+                    freshness: inputData.freshness,
+                  });
+                }}
               ></InputField>
-              {errors.pimage && (
-                <span style={{ color: "red" }}>{errors.pimage}</span>
-              )}
             </div>
             <div className="row">
               <div className="w-auto mb-4">
@@ -163,7 +110,15 @@ export default function Form() {
                   type="radio"
                   name="freshness"
                   value="Brand New"
-                  onChange={handleChange}
+                  onChange={(e) => {
+                    setInputData({
+                      name: inputData.name,
+                      price: inputData.price,
+                      image: inputData.image,
+                      category: inputData.category,
+                      freshness: e.target.value,
+                    });
+                  }}
                 />
                 &nbsp;Brand New
                 <br></br>
@@ -171,7 +126,15 @@ export default function Form() {
                   type="radio"
                   name="freshness"
                   value="Second Hand"
-                  onChange={handleChange}
+                  onChange={(e) => {
+                    setInputData({
+                      name: inputData.name,
+                      price: inputData.price,
+                      image: inputData.image,
+                      category: inputData.category,
+                      freshness: e.target.value,
+                    });
+                  }}
                 />
                 &nbsp;Second Hand
                 <br></br>
@@ -179,12 +142,17 @@ export default function Form() {
                   type="radio"
                   name="freshness"
                   value="Refurbished"
-                  onChange={handleChange}
+                  onChange={(e) => {
+                    setInputData({
+                      name: inputData.name,
+                      price: inputData.price,
+                      image: inputData.image,
+                      category: inputData.category,
+                      freshness: e.target.value,
+                    });
+                  }}
                 />
                 &nbsp;Refurbished
-                {errors.freshness && (
-                  <span style={{ color: "red" }}>{errors.freshness}</span>
-                )}
               </div>
             </div>
             <div className="row">
@@ -196,12 +164,17 @@ export default function Form() {
                 type="text"
                 span="$"
                 name="pprice"
-                onChange={handleChange}
+                onChange={(e) => {
+                  setInputData({
+                    name: inputData.name,
+                    price: e.target.value,
+                    image: inputData.image,
+                    category: inputData.category,
+                    freshness: inputData.freshness,
+                  });
+                }}
                 value={inputData.pprice}
               ></WrapInputField>
-              {errors.pprice && (
-                <span style={{ color: "red" }}>{errors.pprice}</span>
-              )}
             </div>
             <Button
               style={{
@@ -209,8 +182,8 @@ export default function Form() {
                 border: "none",
                 color: "white",
               }}
-              type="submit"
-              onClick={addInputData}
+              type="button"
+              onClick={insertProduct}
             >
               Create Product
             </Button>
@@ -218,80 +191,6 @@ export default function Form() {
         </div>
       </form>
       <br></br>
-      <div>
-        <h2>List Product</h2>
-        <table className="table table-hover ">
-          <thead className="table-danger ">
-            <tr>
-              <th>Id</th>
-              <th>Product Name</th>
-              <th>Product Category</th>
-              <th>Product Image</th>
-              <th>Product Freshness</th>
-              <th>Product Price</th>
-              <th colSpan={2}>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {array &&
-              array.map((item, i) => {
-                return (
-                  <tr key={i}>
-                    <td>
-                      <Link to={`/product/${item.id}`}>{item.id}</Link>
-                    </td>
-                    <td>{item.pname}</td>
-                    <td>{item.pcategory}</td>
-                    <td>{<img src={item.pimage} alt="preview image" />}</td>
-                    <td>{item.freshness}</td>
-                    <td>Rp. {item.pprice}</td>
-                    <td>
-                      <Button
-                        type="button"
-                        style={{
-                          backgroundColor: "green",
-                          border: "none",
-                          color: "white",
-                        }}
-                      >
-                        <BsFillPencilFill
-                          style={{ fontSize: "1.2rem", color: "white" }}
-                        ></BsFillPencilFill>
-                      </Button>
-                    </td>
-                    <td>
-                      <Button
-                        type="button"
-                        toggle="modal"
-                        target="#delete"
-                        style={{
-                          backgroundColor: "#bd4141",
-                          border: "none",
-                          color: "white",
-                        }}
-                      >
-                        <BsFillTrash3Fill
-                          style={{ fontSize: "1.2rem", color: "white" }}
-                        ></BsFillTrash3Fill>
-                      </Button>
-                      <Modal
-                        className="modal fade"
-                        id="delete"
-                        title="Delete Data"
-                        btnClose="Back"
-                        btnSuccess="Hapus"
-                        onClick={() => deleteData(i)}
-                      >
-                        Apakah ingin menghapus item{" "}
-                        <strong>{item.pname}</strong>
-                      </Modal>
-                    </td>
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table>
-      </div>
     </div>
   );
 }
