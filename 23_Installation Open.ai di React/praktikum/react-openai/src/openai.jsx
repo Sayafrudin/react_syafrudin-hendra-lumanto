@@ -36,14 +36,15 @@ export default function FormAI() {
           <Form.Group className="mb-3" controlId="">
             <Form.Label>Ask Anything to OpenAI</Form.Label>
             <Form.Control
-              type="text"
+              as="textarea"
               name="text_ai"
+              rows={5}
               placeholder="What is 2 + 2"
               onChange={(e) => setPrompt(e.target.value)}
             />
           </Form.Group>
 
-          <Form.Group className="mb-3 w-100" controlId="" w={123}>
+          <Form.Group className="mb-3" controlId="">
             <Form.Label>Result :</Form.Label>
             <Form.Control as="textarea" rows={5} value={result} />
           </Form.Group>
