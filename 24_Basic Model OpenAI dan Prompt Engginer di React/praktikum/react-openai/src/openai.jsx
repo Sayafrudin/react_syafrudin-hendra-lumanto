@@ -37,8 +37,8 @@ export default function FormAI() {
             <Form.Label>Ask Anything to OpenAI</Form.Label>
             <Form.Control
               as="textarea"
-              name="text_ai"
               rows={5}
+              name="text_ai"
               placeholder="What is 2 + 2"
               onChange={(e) => setPrompt(e.target.value)}
             />
