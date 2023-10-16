@@ -32,9 +32,6 @@ const productpriceRegex = (productprice) => {
   return re.test(String(productprice));
 };
 
-const productnameValue = productname.value;
-const productpriceValue = productprice.value;
-
 function stoppedTyping() {
   if (productnameValue === "" || productpriceValue === "") {
     document.getElementById("create").disabled = false;
