@@ -1,3 +1,3 @@
-# react_syafrudin-hendra-lumanto
+# React JS
 
-Kumpulan tugas dari Alterra Academy
+Kumpulan Praktikum Alterra Academy
