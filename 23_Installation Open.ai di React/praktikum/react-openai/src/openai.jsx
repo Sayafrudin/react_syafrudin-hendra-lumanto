@@ -5,7 +5,7 @@ import "./styles.css";
 
 export default function FormAI() {
   const openai = new OpenAI({
-    apiKey: "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",
+    apiKey: "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",
     dangerouslyAllowBrowser: true,
   });
 
