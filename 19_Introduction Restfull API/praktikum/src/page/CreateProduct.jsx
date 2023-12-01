@@ -1,5 +1,5 @@
 import Navbar from "../header/Navbar";
-import Form from "../components/Form";
+import Form from "../components/FormProducts";
 import Header from "../header/Header";
 import { useEffect } from "react";
 
