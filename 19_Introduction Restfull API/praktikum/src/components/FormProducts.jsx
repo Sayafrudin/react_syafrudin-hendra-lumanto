@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { BsFillTrash3Fill, BsFillPencilFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { Form, InputGroup } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 import DataTable from "react-data-table-component";
 import axios from "axios";
@@ -26,82 +26,62 @@ export default function FormProducts() {
     { label: "Else", value: "Else" },
   ];
 
-  const insertProduct = () => {
-    axios
-      .post("https://65688c3b9927836bd97507c0.mockapi.io/name", inputData)
-      .then((response) => {
-        if (response.status == 201) {
-          alert("Sukses menambahkan data!");
-          setRefresh(refresh + 1);
-        }
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  const [formData, setFormData] = useState({
+    name: "",
+    category: "",
+    freshness: "",
+    price: "",
+  });
 
+  const { name, category, freshness, price, id } = formData;
   const [data, setData] = useState([]);
-  const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState("");
   const [refresh, setRefresh] = useState(0);
 
-  const getProducts = async () => {
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if ((name, category, freshness, price)) {
+      axios
+        .post("https://65688c3b9927836bd97507c0.mockapi.io/name", formData)
+        .then((res) => {
+          setData([...data, res.data]);
+          setFormData({
+            name: "",
+            category: "",
+            freshness: "",
+            price: "",
+          });
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
+  const handleDelete = (deleteID) => {
     axios
-      .get("https://65688c3b9927836bd97507c0.mockapi.io/name")
-      .then((response) => {
-        setData(response.data);
-        setFilter(response.data);
+      .delete(`https://65688c3b9927836bd97507c0.mockapi.io/name/${deleteID}`)
+      .then((res) => {
+        console.log("DELETE RECORD::::", res);
+        setRefresh(refresh + 1);
       })
-      .catch((error) => {
-        console.error("Error fatching data:", error);
-      });
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
-    getProducts();
-    const result = data.filter((item) => {
-      return item.name.toLowerCase().match(search.toLocaleLowerCase());
-    });
-    setFilter(result);
+    axios
+      .get("https://65688c3b9927836bd97507c0.mockapi.io/name")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((err) => console.log(err));
+    // console.log(data);
   }, [refresh]);
-
-  const handleSelected = ({ selectedRows }) => {
-    console.log(selectedRows);
-  };
-
-  const handleDelete = (val) => {
-    const newData = data.filter((item) => item.id !== val);
-    setFilter(newData);
-  };
-
-  const columns = [
-    { name: "No", selector: (row) => row.id, sortable: true },
-    { name: "Product Name", selector: (row) => row.name, sortable: true },
-    {
-      name: "Product Category",
-      selector: (row) => row.category,
-      sortable: true,
-    },
-    {
-      name: "Product Freshness",
-      selector: (row) => row.freshness,
-      sortable: true,
-    },
-    { name: "Product Price", selector: (row) => row.price, sortable: true },
-    {
-      name: "Action",
-      cell: (row) => (
-        <button className="btn btn-danger" onClick={() => handleDelete(row.id)}>
-          <FaTrash />
-        </button>
-      ),
-    },
-  ];
 
   return (
     <div className="container w-50">
-      <form className="row " autoComplete="off">
+      <form className="row " autoComplete="off" onSubmit={handleSubmit}>
         <div className="container">
           <div className="row p-3">
             <div className="mb-3">
@@ -109,15 +89,9 @@ export default function FormProducts() {
                 label="Product Name"
                 type="text"
                 name="name"
-                onChange={(e) => {
-                  setInputData({
-                    name: e.target.value,
-                    price: inputData.price,
-                    category: inputData.category,
-                    freshness: inputData.freshness,
-                  });
-                }}
-                value={inputData.pname}
+                id="name"
+                value={name}
+                onChange={handleChange}
               ></InputField>
             </div>
 
@@ -127,16 +101,11 @@ export default function FormProducts() {
                 <select
                   className="form-select required"
                   name="category"
-                  onChange={(e) => {
-                    setInputData({
-                      name: inputData.name,
-                      price: inputData.price,
-                      category: e.target.value,
-                      freshness: inputData.freshness,
-                    });
-                  }}
+                  id="category"
+                  onChange={handleChange}
+                  value={category}
                 >
-                  <option name="pcategory" value="" disabled selected>
+                  <option name="category" value="" disabled selected>
                     Choose...
                   </option>
                   {options.map((option) => (
@@ -159,45 +128,27 @@ export default function FormProducts() {
                 <input
                   type="radio"
                   name="freshness"
+                  id="freshness"
+                  onChange={handleChange}
                   value="Brand New"
-                  onChange={(e) => {
-                    setInputData({
-                      name: inputData.name,
-                      price: inputData.price,
-                      category: inputData.category,
-                      freshness: e.target.value,
-                    });
-                  }}
                 />
                 &nbsp;Brand New
                 <br></br>
                 <input
                   type="radio"
                   name="freshness"
+                  id="freshness"
+                  onChange={handleChange}
                   value="Second Hand"
-                  onChange={(e) => {
-                    setInputData({
-                      name: inputData.name,
-                      price: inputData.price,
-                      category: inputData.category,
-                      freshness: e.target.value,
-                    });
-                  }}
                 />
                 &nbsp;Second Hand
                 <br></br>
                 <input
                   type="radio"
                   name="freshness"
+                  id="freshness"
+                  onChange={handleChange}
                   value="Refurbished"
-                  onChange={(e) => {
-                    setInputData({
-                      name: inputData.name,
-                      price: inputData.price,
-                      category: inputData.category,
-                      freshness: e.target.value,
-                    });
-                  }}
                 />
                 &nbsp;Refurbished
               </div>
@@ -210,16 +161,10 @@ export default function FormProducts() {
                 label="Product Price"
                 type="text"
                 span="$"
-                name="pprice"
-                onChange={(e) => {
-                  setInputData({
-                    name: inputData.name,
-                    price: e.target.value,
-                    category: inputData.category,
-                    freshness: inputData.freshness,
-                  });
-                }}
-                value={inputData.pprice}
+                name="price"
+                id="price"
+                onChange={handleChange}
+                value={price}
               ></WrapInputField>
             </div>
             <Buttons
@@ -228,34 +173,43 @@ export default function FormProducts() {
                 border: "none",
                 color: "white",
               }}
-              type="button"
-              onClick={insertProduct}
+              type="submit"
             >
               Create Product
             </Buttons>
           </div>
           <div>
-            <DataTable
-              columns={columns}
-              data={filter}
-              onSelectedRowsChange={handleSelected}
-              fixedHeaderScrollHeight="300px"
-              selectableRows
-              selectableRowsHighlight
-              highlightOnHover
-              fixedHeader
-              pagination
-              subHeader
-              subHeaderComponent={
-                <InputGroup className="mb-3 w-25">
-                  <Form.Control
-                    placeholder="Search..."
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                  />
-                </InputGroup>
-              }
-            ></DataTable>
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Product Name</th>
+                  <th>Product Category</th>
+                  <th>Product Freshness</th>
+                  <th>Product Price</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.id}</td>
+                    <td>{item.name}</td>
+                    <td>{item.category}</td>
+                    <td>{item.freshness}</td>
+                    <td>{item.price}</td>
+                    <td>
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => handleDelete(item.id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </form>
